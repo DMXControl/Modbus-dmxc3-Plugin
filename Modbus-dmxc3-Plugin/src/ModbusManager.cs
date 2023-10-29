@@ -371,6 +371,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
         #region IResourceProvider
         public bool existsResource(EResourceDataType type, string name)
         {
+            if (type != EResourceDataType.Symbol) return false;
+
 #if DEBUG
             if (!name.Contains("Modbus"))
                 return false;
@@ -387,6 +389,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
         }
         public IReadOnlyList<LumosDataMetadata> allResources(EResourceDataType type)
         {
+            if (type != EResourceDataType.Symbol) return null;
+
             var list = new List<LumosDataMetadata>();
             list.Add(new LumosDataMetadata("Modbus_16"));
             list.Add(new LumosDataMetadata("Modbus_32"));
@@ -396,6 +400,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
         }
         public Stream loadResource(EResourceDataType type, string name)
         {
+            if (type != EResourceDataType.Symbol) return null;
+
 #if DEBUG
             if (!name.Contains("Modbus"))
                 return null;
