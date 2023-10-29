@@ -78,7 +78,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         {
             if (args.SettingsPath == MODBUS_INPUTASSIGNMENT_VISIBLE)
             {
-                if (SettingsManager.getInstance().GetKernelSetting<bool>(ESettingsType.PROJECT_APPLICATION, MODBUS_INPUTASSIGNMENT_VISIBLE))
+                if ((bool)args.NewValue)
                     this.ShowInInputAssignment();
                 else
                     this.RemoveFromInputAssignment();
@@ -86,8 +86,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
             if (args.SettingsPath == MODBUS_INPUTASSIGNMENT_AVAILABLE_ADDRESSES)
             {
-                if (SettingsManager.getInstance()
-                    .GetKernelSetting<bool>(ESettingsType.PROJECT_APPLICATION, MODBUS_INPUTASSIGNMENT_VISIBLE))
+                var val = SettingsManager.getInstance().GetKernelSetting<bool>(ESettingsType.APPLICATION, MODBUS_INPUTASSIGNMENT_VISIBLE);
+                if (val)
                 {
                     this.RemoveFromInputAssignment();
                     this.ShowInInputAssignment();
