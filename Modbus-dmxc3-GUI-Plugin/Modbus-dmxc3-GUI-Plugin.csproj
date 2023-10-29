@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+	<OutputType>Library</OutputType>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<RootNamespace>org.dmxc.lumos.Kernel.Modbus</RootNamespace>
+	<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<Nullable>enable</Nullable>
+	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<LangVersion>latest</LangVersion>
+  </PropertyGroup>
+	<ItemGroup>
+		<Reference Include="LumosGUI">
+			<HintPath Condition="Exists('..\..\Lumos\3.3\Lumos\bin\Debug\net6.0')">..\..\Lumos\3.3\Lumos\bin\Debug\net6.0\Lumos.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosGUI\bin\Debug')">..\..\Lumos\LumosGUI\bin\Debug\LumosGUI.exe</HintPath>
+			<HintPath Condition="Exists('..\dep')">..\dep\Lumos.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="LumosLIB">
+			<HintPath Condition="Exists('..\..\Lumos\3.3\LumosLIB\bin\Debug\netstandard2.0')">..\..\Lumos\3.3\LumosLIB\bin\Debug\netstandard2.0\LumosLIB.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosLIB\bin\Debug\netstandard2.0')">..\..\Lumos\LumosLIB\bin\Debug\netstandard2.0\LumosLIB.dll</HintPath>
+			<HintPath Condition="Exists('..\dep')">..\dep\LumosLIB.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="LumosToolsLIB">
+			<HintPath Condition="Exists('..\..\Lumos\3.3\LumosToolsLIB\bin\Debug\netstandard2.0')">..\..\Lumos\3.3\LumosToolsLIB\bin\Debug\netstandard2.0\LumosToolsLIB.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosToolsLIB\bin\Debug\netstandard2.0')">..\..\Lumos\LumosToolsLIB\bin\Debug\netstandard2.0\LumosToolsLIB.dll</HintPath>
+			<HintPath Condition="Exists('..\dep')">..\dep\LumosToolsLIB.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="LumosProtobuf">
+			<HintPath Condition="Exists('..\..\Lumos\3.3\LumosProtobuf\bin\Debug\netstandard2.0')">..\..\Lumos\3.3\LumosProtobuf\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosProtobuf\bin\Debug\netstandard2.0')">..\..\Lumos\LumosProtobuf\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
+			<HintPath Condition="Exists('..\dep')">..\dep\LumosProtobuf.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="log4net">
+			<HintPath Condition="Exists('..\..\Lumos\3.3\Lumos\bin\Debug\net6.0')">..\..\Lumos\3.3\Lumos\bin\Debug\net6.0\log4net.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosGUI\bin\Debug')">..\..\Lumos\LumosGUI\bin\Debug\log4net.dll</HintPath>
+			<HintPath Condition="Exists('..\dep')">..\dep\log4net.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(TargetDir)Modbus-dmxc3-GUI-Plugin.*&quot; &quot;%25DMXCRF%25\GUI\Plugins\Modbus\&quot; /C /F /R /Y /I&#xD;&#xA;xcopy &quot;$(TargetDir)Modbus-dmxc3-GUI-Plugin.*&quot; &quot;$(ProjectDir)..\..\Lumos\LumosGUI\bin\Debug\Plugins\Modbus\&quot;" />
+	</Target>
+
+</Project>
