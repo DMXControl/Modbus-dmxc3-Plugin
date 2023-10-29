@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyModbus;
-using LumosLIB.Kernel;
-using LumosLIB.Tools;
+﻿using LumosLIB.Kernel;
 using LumosProtobuf;
-using org.dmxc.lumos.Kernel.Input.v2;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class ULongModbusInputSource: AbstractModbusInputSource
+    public class ULongModbusInputSource : AbstractModbusInputSource
     {
         private static readonly ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "HoldingRegister", "ULong");
 

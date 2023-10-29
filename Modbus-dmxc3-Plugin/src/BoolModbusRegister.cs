@@ -2,7 +2,7 @@
 {
     public abstract partial class AbstractModbusMaster
     {
-        public sealed class BoolModbusRegister: AbstractModbusRegister
+        public sealed class BoolModbusRegister : AbstractModbusRegister
         {
             public readonly byte Bit;
             public bool BoolValue { get; private set; }
@@ -11,7 +11,7 @@
                 get { return this.BoolValue; }
             }
 
-            public BoolModbusRegister(ushort address, byte bit, string name = null) : base (address, 1, name)
+            public BoolModbusRegister(ushort address, byte bit, string name = null) : base(address, 1, name)
             {
                 this.Bit = bit;
             }

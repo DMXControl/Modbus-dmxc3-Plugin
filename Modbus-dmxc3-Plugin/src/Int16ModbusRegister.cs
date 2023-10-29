@@ -2,7 +2,7 @@
 {
     public abstract partial class AbstractModbusMaster
     {
-        public sealed class Int16ModbusRegister: AbstractNumericModbusRegister
+        public sealed class Int16ModbusRegister : AbstractNumericModbusRegister
         {
             public short Int16Value { get; private set; }
 

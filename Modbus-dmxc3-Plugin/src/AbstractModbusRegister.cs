@@ -1,5 +1,4 @@
 ﻿using LumosToolsLIB.Tools;
-using System;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
@@ -29,7 +28,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
             public override string ToString()
             {
-                return string.Format("{0}: {1}", this.Name,this.Value);
+                return string.Format("{0}: {1}", this.Name, this.Value);
             }
         }
     }

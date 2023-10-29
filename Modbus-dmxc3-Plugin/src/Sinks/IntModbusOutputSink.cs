@@ -4,7 +4,7 @@ using LumosProtobuf;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class IntModbusOutputSink: AbstractModbusOutputSink
+    public class IntModbusOutputSink : AbstractModbusOutputSink
     {
         private static ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "HoldingRegister", "Int");
         public IntModbusOutputSink(ushort address) : base(getID(address), address, getName(address), CATEGORY)

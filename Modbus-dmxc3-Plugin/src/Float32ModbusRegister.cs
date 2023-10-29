@@ -4,7 +4,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 {
     public abstract partial class AbstractModbusMaster
     {
-        public sealed class Float32ModbusRegister: AbstractNumericModbusRegister
+        public sealed class Float32ModbusRegister : AbstractNumericModbusRegister
         {
             public float Float32Value { get; private set; }
 

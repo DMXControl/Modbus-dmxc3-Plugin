@@ -4,7 +4,7 @@ using org.dmxc.lumos.Kernel.Input.v2;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public abstract class AbstractModbusOutputSink:AbstractInputSink
+    public abstract class AbstractModbusOutputSink : AbstractInputSink
     {
         public readonly ushort Address;
         public AbstractModbusOutputSink(string id, ushort address, string name, ParameterCategory category) : base(id, name, category)

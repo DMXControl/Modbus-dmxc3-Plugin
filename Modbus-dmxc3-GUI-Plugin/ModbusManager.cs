@@ -6,11 +6,9 @@ using LumosLIB.Kernel.Log;
 using LumosProtobuf.Resource;
 using org.dmxc.lumos.Kernel.Resource;
 using org.dmxc.lumos.Kernel.Run;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Drawing.Imaging;
-using static LumosLIB.Tools.NativeMethods;
 using T = LumosLIB.Tools.I18n.DummyT;
 
 namespace org.dmxc.lumos.Kernel.Modbus
@@ -19,8 +17,6 @@ namespace org.dmxc.lumos.Kernel.Modbus
     {
         private static new readonly ILumosLog log = LumosLogger.getInstance(typeof(ModbusManager));
         private static readonly ModbusManager instance = new ModbusManager();
-
-
 
         public string Name => nameof(ModbusManager);
 

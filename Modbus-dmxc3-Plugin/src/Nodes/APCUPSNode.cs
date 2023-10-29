@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using LumosLIB.Tools;
+﻿using LumosLIB.Tools;
 using org.dmxc.lumos.Kernel.Modbus;
 using T = LumosLIB.Tools.I18n.DummyT;
 
 namespace org.dmxc.lumos.Kernel.Input.v2.Worker
 {
-    
+
 #if DEBUG
     public
 #endif
@@ -14,7 +13,7 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
         public static readonly string NAME = T._("APCUPS");
         public static readonly string TYPE = "__APCUPS";
 
-        private ushort[] defaultVisibleAddresses = new ushort[] {4, 5, 6, 7, 8, 15, 16, 17, 18};
+        private ushort[] defaultVisibleAddresses = new ushort[] { 4, 5, 6, 7, 8, 15, 16, 17, 18 };
         public APCUPSNode(GraphNodeID id)
             : base(id, NAME, TYPE, KnownCategories.ELECTRICITY)
         {

@@ -1,6 +1,6 @@
 ﻿namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class Janitza_RM96_E:AbstractModbusMaster
+    public class Janitza_RM96_E : AbstractModbusMaster
     {
         public override string Description
         {

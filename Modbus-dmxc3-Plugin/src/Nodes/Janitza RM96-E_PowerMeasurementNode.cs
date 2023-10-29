@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using LumosLIB.Tools;
+﻿using LumosLIB.Tools;
 using org.dmxc.lumos.Kernel.Modbus;
 using T = LumosLIB.Tools.I18n.DummyT;
 
@@ -13,7 +12,7 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
     {
         public static readonly string NAME = T._("Janitza RM96-E PowerMeasurement");
         public static readonly string TYPE = "__Janitza_RM96_E_PowerMeasurement";
-        
+
         private ushort[] defaultVisibleAddresses = new ushort[]
         {
         };

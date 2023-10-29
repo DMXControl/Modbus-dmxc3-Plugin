@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyModbus;
-using LumosLIB.Kernel;
-using LumosProtobuf;
+﻿using LumosProtobuf;
 using LumosProtobuf.Input;
 using org.dmxc.lumos.Kernel.Input.v2;
 

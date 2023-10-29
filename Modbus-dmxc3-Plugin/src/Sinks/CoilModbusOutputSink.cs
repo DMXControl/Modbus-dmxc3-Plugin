@@ -5,7 +5,7 @@ using LumosProtobuf.Input;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class CoilModbusOutputSink: AbstractModbusOutputSink
+    public class CoilModbusOutputSink : AbstractModbusOutputSink
     {
         private static ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "Coil");
         public CoilModbusOutputSink(ushort address) : base(getID(address), address, getName(address), CATEGORY)

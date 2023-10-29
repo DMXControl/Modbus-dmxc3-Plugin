@@ -4,7 +4,7 @@ using LumosProtobuf;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class ShortModbusOutputSink: AbstractModbusOutputSink
+    public class ShortModbusOutputSink : AbstractModbusOutputSink
     {
         private static ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "HoldingRegister", "Short");
         public ShortModbusOutputSink(ushort address) : base(getID(address), address, getName(address), CATEGORY)
@@ -25,7 +25,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         {
             long value;
             LumosTools.TryConvertToInt64(newValue, out value);
-            ModbusManager.SetHoldingRegister(this.Address,(short)value.Limit(short.MinValue, short.MaxValue));
+            ModbusManager.SetHoldingRegister(this.Address, (short)value.Limit(short.MinValue, short.MaxValue));
             return true;
         }
 

@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace org.dmxc.lumos.Kernel.Modbus
+﻿namespace org.dmxc.lumos.Kernel.Modbus
 {
     public abstract partial class AbstractModbusMaster
     {
-        public sealed class ASCIIModbusRegister: AbstractModbusRegister
+        public sealed class ASCIIModbusRegister : AbstractModbusRegister
         {
             public Char ASCIIValue { get; private set; }
             public override object Value
@@ -12,7 +10,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
                 get { return this.ASCIIValue; }
             }
 
-            public ASCIIModbusRegister(ushort address, string name = null): base (address, 1, name)
+            public ASCIIModbusRegister(ushort address, string name = null) : base(address, 1, name)
             {
             }
 

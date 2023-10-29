@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyModbus;
-using LumosLIB.Kernel;
-using LumosLIB.Tools;
+﻿using LumosLIB.Kernel;
 using LumosProtobuf;
-using org.dmxc.lumos.Kernel.Input.v2;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class UIntModbusInputSource: AbstractModbusInputSource
+    public class UIntModbusInputSource : AbstractModbusInputSource
     {
         private static readonly ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "HoldingRegister", "UInt");
 
@@ -39,7 +30,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
         protected override object min
         {
-            get { return uint.MinValue; } 
+            get { return uint.MinValue; }
         }
 
         protected override object max

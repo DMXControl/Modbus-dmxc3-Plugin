@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace org.dmxc.lumos.Kernel.Modbus
+﻿namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class APC_MGEGalaxy3500_SmartUPSVT_SmartUPS:AbstractModbusMaster
+    public class APC_MGEGalaxy3500_SmartUPSVT_SmartUPS : AbstractModbusMaster
     {
         public override string Description
         {
@@ -19,7 +17,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
             get { return 3000; }
         }
 
-        private AbstractModbusRegister[] registers= new AbstractModbusRegister[]
+        private AbstractModbusRegister[] registers = new AbstractModbusRegister[]
         {
             new BoolModbusRegister(0,0,"UPS turning on"),
             new BoolModbusRegister(0,1,"UPS in bypass due to an internal fault"),
@@ -250,8 +248,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
             {
                 get { return this.QualityValue; }
             }
-            
-            public LineQualityModbusRegister(ushort address, string name = null) : base(address, 1, name,"%")
+
+            public LineQualityModbusRegister(ushort address, string name = null) : base(address, 1, name, "%")
             {
             }
 

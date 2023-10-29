@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyModbus;
-using LumosLIB.Kernel;
-using LumosLIB.Tools;
+﻿using LumosLIB.Kernel;
 using LumosProtobuf;
-using org.dmxc.lumos.Kernel.Input.v2;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class LongModbusInputSource: AbstractModbusInputSource
+    public class LongModbusInputSource : AbstractModbusInputSource
     {
         private static readonly ParameterCategory CATEGORY = ParameterCategoryTools.FromNames("Modbus", "HoldingRegister", "Long");
 
@@ -36,7 +27,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         {
             return string.Format("Long: {0}", address);
         }
-        
+
         protected override object min
         {
             get { return long.MinValue; } //This doesn't make sence.... There must be some range limit in the modbus

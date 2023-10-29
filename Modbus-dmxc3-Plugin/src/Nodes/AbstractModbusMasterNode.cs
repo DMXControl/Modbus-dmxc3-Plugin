@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
-using LumosLIB.Kernel;
+﻿using LumosLIB.Kernel;
 using LumosLIB.Kernel.Log;
 using LumosLIB.Tools;
 using LumosProtobuf;
 using org.dmxc.lumos.Kernel.Modbus;
+using System.Net;
+using System.Net.NetworkInformation;
 using T = LumosLIB.Tools.I18n.DummyT;
 
 namespace org.dmxc.lumos.Kernel.Input.v2.Worker
@@ -68,9 +64,10 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
             {
                 if (true.Equals(value))
                 {
-                    var t = Task.Run(() => {
+                    var t = Task.Run(() =>
+                    {
                         Ping ping = new Ping();
-                        PingReply pingresult = ping.Send(ModbusMaster.IPAddress,200);
+                        PingReply pingresult = ping.Send(ModbusMaster.IPAddress, 200);
                         if (!pingresult.Status.Equals(outputPing.Value))
                         {
                             outputPing.Value = pingresult.Status;
@@ -112,7 +109,7 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
                     abstractModbusRegister.ValueChanged += (o, e) =>
                     {
                         var output = val.Left;
-                        if ((output.Value==null&& abstractModbusRegister.Value!=null)||!(output?.Value?.Equals(abstractModbusRegister.Value)??false))
+                        if ((output.Value == null && abstractModbusRegister.Value != null) || !(output?.Value?.Equals(abstractModbusRegister.Value) ?? false))
                         {
                             output.Value = abstractModbusRegister.Value;
                             this.OnProcessRequested();
@@ -145,12 +142,12 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
             switch (parameter.Name)
             {
                 case P_IPADDRESS:
-                    if (!this.ModbusMaster.IPAddress.Equals((string) value))
-                        this.ModbusMaster.SetIPAddress((string) value, this.ModbusMaster.Port);
+                    if (!this.ModbusMaster.IPAddress.Equals((string)value))
+                        this.ModbusMaster.SetIPAddress((string)value, this.ModbusMaster.Port);
                     return true;
                 case P_PORT:
                     if (!this.ModbusMaster.Port.Equals((ushort)value))
-                        this.ModbusMaster.SetIPAddress(this.ModbusMaster.IPAddress, (ushort) value);
+                        this.ModbusMaster.SetIPAddress(this.ModbusMaster.IPAddress, (ushort)value);
                     return true;
             }
             return base.setParameterInternal(parameter, value);
@@ -163,7 +160,7 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
                 case P_IPADDRESS:
                     IPAddress address;
                     if (value is string)
-                        if (IPAddress.TryParse((string) value, out address))
+                        if (IPAddress.TryParse((string)value, out address))
                         {
                             return true;
                         }

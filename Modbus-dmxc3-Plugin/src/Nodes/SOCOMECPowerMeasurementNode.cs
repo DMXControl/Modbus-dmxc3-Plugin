@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using LumosLIB.Tools;
+﻿using LumosLIB.Tools;
 using org.dmxc.lumos.Kernel.Modbus;
 using T = LumosLIB.Tools.I18n.DummyT;
 
@@ -12,7 +11,7 @@ namespace org.dmxc.lumos.Kernel.Input.v2.Worker
     {
         public static readonly string NAME = T._("SOCOMECPowerMeasurement");
         public static readonly string TYPE = "__SOCOMECPowerMeasurement";
-        
+
         private ushort[] defaultVisibleAddresses = new ushort[]
         {
             0xC550,

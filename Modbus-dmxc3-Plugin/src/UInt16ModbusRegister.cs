@@ -2,7 +2,7 @@
 {
     public abstract partial class AbstractModbusMaster
     {
-        public sealed class UInt16ModbusRegister: AbstractNumericModbusRegister
+        public sealed class UInt16ModbusRegister : AbstractNumericModbusRegister
         {
             public ushort UInt16Value { get; private set; }
 
@@ -18,7 +18,7 @@
 
             internal override void processNewValues(int[] values)
             {
-                this.UInt16Value = (ushort) values[0];
+                this.UInt16Value = (ushort)values[0];
                 base.processNewValues(values);
             }
         }

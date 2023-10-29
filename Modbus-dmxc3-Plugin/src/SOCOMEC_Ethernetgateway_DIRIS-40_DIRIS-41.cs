@@ -2,7 +2,7 @@
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public class SOCOMEC_Ethernetgateway_DIRIS_40_DIRIS_41:AbstractModbusMaster
+    public class SOCOMEC_Ethernetgateway_DIRIS_40_DIRIS_41 : AbstractModbusMaster
     {
         public override string Description
         {

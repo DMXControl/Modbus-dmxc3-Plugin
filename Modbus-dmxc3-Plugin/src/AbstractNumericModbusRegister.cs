@@ -2,14 +2,14 @@
 {
     public abstract partial class AbstractModbusMaster
     {
-        public abstract class AbstractNumericModbusRegister: AbstractModbusRegister
+        public abstract class AbstractNumericModbusRegister : AbstractModbusRegister
         {
             public readonly string Unit;
 
-            public AbstractNumericModbusRegister(ushort address, ushort length, string name, string unit):base(address, length, name)
-             {
-                 this.Unit = unit;
-             }
+            public AbstractNumericModbusRegister(ushort address, ushort length, string name, string unit) : base(address, length, name)
+            {
+                this.Unit = unit;
+            }
 
 
             public sealed override string ToString()

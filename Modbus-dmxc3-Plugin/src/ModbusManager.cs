@@ -1,24 +1,18 @@
-﻿using LumosLIB.Kernel.Log;
-using org.dmxc.lumos.Kernel.Run;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading;
-using EasyModbus;
+﻿using EasyModbus;
+using LumosLIB.Kernel.Log;
 using LumosLIB.Tools;
+using LumosProtobuf.Resource;
 using org.dmxc.lumos.Kernel.Input.v2;
 using org.dmxc.lumos.Kernel.Monitoring;
-using org.dmxc.lumos.Kernel.Project;
 using org.dmxc.lumos.Kernel.Resource;
+using org.dmxc.lumos.Kernel.Run;
 using org.dmxc.lumos.Kernel.Settings;
+using System.Collections.ObjectModel;
 using T = LumosLIB.Tools.I18n.DummyT;
-using LumosProtobuf.Resource;
-using static LumosLIB.Tools.NativeMethods;
 
 namespace org.dmxc.lumos.Kernel.Modbus
 {
-    public sealed class ModbusManager : AbstractManagerAndService, ILumosProjectManager,IResourceProvider
+    public sealed class ModbusManager : AbstractManagerAndService, ILumosProjectManager, IResourceProvider
     {
         private static new readonly ILumosLog log = LumosLogger.getInstance(typeof(ModbusManager));
         private static readonly ModbusManager instance = new ModbusManager();
@@ -66,7 +60,8 @@ namespace org.dmxc.lumos.Kernel.Modbus
             s.RegisterKernelSetting(new SettingsMetadata(ESettingsRegisterType.BOTH, "Settings:Modbus", T._("Show in InputAssignment"), MODBUS_INPUTASSIGNMENT_VISIBLE, String.Empty), false);
             s.RegisterKernelSetting(new SettingsMetadata(ESettingsRegisterType.BOTH, "Settings:Modbus", T._("Available Addresses in InputAssignment"), MODBUS_INPUTASSIGNMENT_AVAILABLE_ADDRESSES, String.Empty)
             {
-                Min = 1, Max = ushort.MaxValue
+                Min = 1,
+                Max = ushort.MaxValue
             }, (ushort)4);
             SettingsManager.getInstance().SettingChanged += ModbusManager_SettingChanged;
             if (SettingsManager.getInstance().GetKernelSetting<bool>(ESettingsType.APPLICATION, MODBUS_INPUTASSIGNMENT_VISIBLE))
@@ -282,7 +277,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         }
         public static float GetHoldingRegisterFloat(ushort address)
         {
-            return ModbusClient.ConvertRegistersToFloat(GetHoldingRegister(address,2), ModbusClient.RegisterOrder.HighLow);
+            return ModbusClient.ConvertRegistersToFloat(GetHoldingRegister(address, 2), ModbusClient.RegisterOrder.HighLow);
         }
 
         public static event ModbusServer.HoldingRegistersChangedHandler HoldingRegistersChanged
@@ -305,7 +300,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         }
         public static bool[] GetCoils(ushort address, int values)
         {
-            if(values==0)
+            if (values == 0)
                 return new bool[0];
             if (getInstance().IsInitialized)
             {
@@ -354,7 +349,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
         void ILumosProjectManager.closeProject(LumosIOContext context)
         {
-            
+
         }
 
         void ILumosProjectManager.loadProject(LumosIOContext context, ELoadTime time)
@@ -364,12 +359,12 @@ namespace org.dmxc.lumos.Kernel.Modbus
             {
                 this.ShowInInputAssignment();
             }
-                
+
         }
 
         void ILumosProjectManager.saveProject(LumosIOContext context)
         {
-            
+
         }
 
 

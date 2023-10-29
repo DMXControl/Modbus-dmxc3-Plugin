@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using EasyModbus;
+﻿using EasyModbus;
 using LumosLIB.Kernel.Log;
 using LumosLIB.Tools;
 
@@ -18,7 +14,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
         public abstract string Description { get; }
         public abstract int Timeout { get; }
         public abstract AbstractModbusRegister[] Registers { get; }
-        private List<Pair<ushort,ushort>> registerMapBlocks = new List<Pair<ushort, ushort>>();
+        private List<Pair<ushort, ushort>> registerMapBlocks = new List<Pair<ushort, ushort>>();
 
         public AbstractModbusMaster(string ipAddress, ushort port = 502)
         {
@@ -27,7 +23,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
             if (string.IsNullOrWhiteSpace(ipAddress))
                 throw new ArgumentNullException(nameof(ipAddress));
 
-            this.SetIPAddress(ipAddress,port);
+            this.SetIPAddress(ipAddress, port);
 
             ushort blockStartAddress = 0;
             ushort nextBlockHasToBeAddress = 0;
@@ -40,23 +36,23 @@ namespace org.dmxc.lumos.Kernel.Modbus
                     blockStartAddress = register.Key;
                     firstBlock = false;
                 }
-                else if(nextBlockHasToBeAddress != register.Key)
+                else if (nextBlockHasToBeAddress != register.Key)
                 {
                     registerMapBlocks.Add(new Pair<ushort, ushort>(blockStartAddress,
-                        (ushort) (nextBlockHasToBeAddress - blockStartAddress)));
+                        (ushort)(nextBlockHasToBeAddress - blockStartAddress)));
                     nextBlockHasToBeAddress = 0;
                     blockStartAddress = register.Key;
                 }
 
                 nextBlockHasToBeAddress = register.Key;
-                nextBlockHasToBeAddress += register.Max(r=>r.Length);
+                nextBlockHasToBeAddress += register.Max(r => r.Length);
             }
 
             registerMapBlocks.Add(new Pair<ushort, ushort>(blockStartAddress,
-                (ushort) (nextBlockHasToBeAddress - blockStartAddress)));
+                (ushort)(nextBlockHasToBeAddress - blockStartAddress)));
         }
 
-        public void Refresh(AbstractModbusMaster[] clones=null)
+        public void Refresh(AbstractModbusMaster[] clones = null)
         {
             try
             {
@@ -82,7 +78,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
                         register.processNewValues(values);
                         if (clones.NullToEmpty().Any())
-                            clones.ForEach(c => c.Registers.Single(r=>r.Name.Equals(register.Name)&&r.Address==register.Address).processNewValues(values));
+                            clones.ForEach(c => c.Registers.Single(r => r.Name.Equals(register.Name) && r.Address == register.Address).processNewValues(values));
                     }
                 }
                 client.Disconnect();
