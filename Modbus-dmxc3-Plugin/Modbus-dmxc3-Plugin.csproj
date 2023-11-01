@@ -61,6 +61,6 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="xcopy &quot;$(TargetDir)Modbus-dmxc3-Plugin.*&quot; &quot;%25DMXCRF%25\Kernel\Plugins\Modbus\&quot; /C /F /R /Y /I&#xD;&#xA;xcopy &quot;$(TargetDir)EasyModbus.dll&quot; &quot;%25DMXCRF%25\Kernel\Plugins\Modbus\&quot; /C /F /R /Y /I&#xD;&#xA;xcopy &quot;$(TargetDir)Modbus-dmxc3-Plugin.*&quot; &quot;$(ProjectDir)..\..\Lumos\Lumos\bin\Debug\net6.0\Plugins\Modbus\&quot;&#xD;&#xA;xcopy &quot;$(TargetDir)EasyModbus.dll&quot; &quot;$(ProjectDir)..\..\Lumos\Lumos\bin\Debug\net6.0\Plugins\Modbus\&quot;" />
+		<Exec Command="FOR /F &quot;skip=2 tokens=2,*&quot; %25%25A IN ('reg.exe query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Lumos.exe&quot; /v &quot;&quot;') DO set &quot;DMXCRF=%25%25B&quot;&#xD;&#xA;xcopy &quot;$(TargetDir)Modbus-dmxc3-Plugin.*&quot; &quot;%25DMXCRF%25\Kernel\Plugins\Modbus\&quot; /C /F /R /Y /I&#xD;&#xA;xcopy &quot;$(TargetDir)EasyModbus.dll&quot; &quot;%25DMXCRF%25\Kernel\Plugins\Modbus\&quot; /C /F /R /Y /I" />
 	</Target>
 </Project>
