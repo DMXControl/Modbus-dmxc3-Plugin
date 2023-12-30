@@ -23,8 +23,6 @@ namespace org.dmxc.lumos.Kernel.Modbus
         private List<AbstractModbusMaster> modbusMastersRemoteDevices = new List<AbstractModbusMaster>();
         private ModbusServer server;
 
-        private Timer timer;
-
         private ushort _lastShownAddresses = 0;
 
         private ModbusManager()
@@ -68,10 +66,6 @@ namespace org.dmxc.lumos.Kernel.Modbus
                 this.ShowInInputAssignment();
             else
                 this.RemoveFromInputAssignment();
-
-
-            timer = new Timer(new TimerCallback(autoRefresh), null, 5000, 500);
-
         }
 
         private void ModbusManager_SettingChanged(object sender, SettingChangedEventArgs args)
@@ -328,7 +322,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
             this.shutdownManager();
         }
 
-        ReadOnlyCollection<Type> IManager.ManagerDependencies
+        public IReadOnlyCollection<Type> ManagerDependencies
         {
             get
             {
@@ -345,7 +339,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
 
         ELoadTime ILumosProjectManager.LoadTime => ELoadTime.BEFORE_CONTAINERS;
 
-        public string Name => throw new NotImplementedException();
+        public string Name => nameof(ModbusManager);
 
         void ILumosProjectManager.closeProject(LumosIOContext context)
         {

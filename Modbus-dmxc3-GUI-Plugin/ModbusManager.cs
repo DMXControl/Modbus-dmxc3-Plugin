@@ -47,7 +47,7 @@ namespace org.dmxc.lumos.Kernel.Modbus
             this.shutdownManager();
         }
 
-        ReadOnlyCollection<Type> IManager.ManagerDependencies
+        public IReadOnlyCollection<Type> ManagerDependencies
         {
             get
             {
