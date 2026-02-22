@@ -75,12 +75,12 @@ pipeline {
 		}
 		stage('Archive Artifacts'){
 			steps {
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\Modbus-dmxc3-Plugin.dll\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\Modbus-dmxc3-Plugin.pdb\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\Modbus-dmxc3-Plugin.deps.json\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\EasyModbus.dll\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\System.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
-				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net6.0\\Microsoft.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\Modbus-dmxc3-Plugin.dll\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\Modbus-dmxc3-Plugin.pdb\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\Modbus-dmxc3-Plugin.deps.json\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\EasyModbus.dll\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\System.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
+				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-Plugin\\bin\\Release\\net8.0\\Microsoft.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
 				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-GUI-Plugin\\bin\\Release\\net48\\Modbus-dmxc3-GUI-Plugin.dll\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
 				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-GUI-Plugin\\bin\\Release\\net48\\Modbus-dmxc3-GUI-Plugin.pdb\" \"$WORKSPACE\\output\\\" /F /R /Y /I"
 				bat "xcopy \"$WORKSPACE\\Modbus-dmxc3-GUI-Plugin\\bin\\Release\\net48\\System.*\" \"$WORKSPACE\\output\\dependencies\\\" /F /R /Y /I"
