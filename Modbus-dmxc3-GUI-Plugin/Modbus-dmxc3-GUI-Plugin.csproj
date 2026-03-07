@@ -34,13 +34,13 @@
 			<Private>True</Private>
 		</Reference>
 		<Reference Include="LumosProtobuf">
-			<HintPath Condition="Exists('..\..\Lumos\3.3\LumosProtobuf\bin\Debug\netstandard2.0')">..\..\Lumos\3.3\LumosProtobuf\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
-			<HintPath Condition="Exists('..\..\Lumos\LumosProtobuf\bin\Debug\netstandard2.0')">..\..\Lumos\LumosProtobuf\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\3.3\LumosProtobuf\csharp\bin\Debug\netstandard2.0')">..\..\Lumos\3.3\LumosProtobuf\csharp\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\LumosProtobuf\csharp\bin\Debug\netstandard2.0')">..\..\Lumos\LumosProtobuf\csharp\bin\Debug\netstandard2.0\LumosProtobuf.dll</HintPath>
 			<HintPath Condition="Exists('..\dep')">..\dep\LumosProtobuf.dll</HintPath>
 			<Private>True</Private>
 		</Reference>
 		<Reference Include="log4net">
-			<HintPath Condition="Exists('..\..\Lumos\3.3\Lumos\bin\Debug\net6.0')">..\..\Lumos\3.3\Lumos\bin\Debug\net6.0\log4net.dll</HintPath>
+			<HintPath Condition="Exists('..\..\Lumos\3.3\Lumos\bin\Debug\net8.0')">..\..\Lumos\3.3\Lumos\bin\Debug\net8.0\log4net.dll</HintPath>
 			<HintPath Condition="Exists('..\..\Lumos\LumosGUI\bin\Debug')">..\..\Lumos\LumosGUI\bin\Debug\log4net.dll</HintPath>
 			<HintPath Condition="Exists('..\dep')">..\dep\log4net.dll</HintPath>
 		</Reference>
